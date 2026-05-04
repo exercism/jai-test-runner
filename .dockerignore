@@ -8,3 +8,8 @@ bin/run-in-docker.sh
 bin/run-tests-in-docker.sh
 bin/run-tests.sh
 tests/
+
+# TODO: temporary solution to allow testing the test runner locally
+# but without commiting the Jai compiler to the repository
+jai/bin/jai-linux
+jai/bin/lld-linux
