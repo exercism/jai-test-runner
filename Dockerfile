@@ -1,7 +1,11 @@
-FROM alpine:3.18
+FROM ubuntu:26.04
 
-# install packages required to run the tests
-RUN apk add --no-cache jq coreutils
+# TODO: temporary solution until we have a better way to install the Jai compiler
+WORKDIR /opt/jai
+COPY jai/bin/jai-linux .
+COPY jai/bin/lld-linux .
+
+RUN ln -s /opt/jai/jai-linux /usr/local/bin/jai
 
 WORKDIR /opt/test-runner
 COPY . .
