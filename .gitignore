@@ -1,1 +1,5 @@
 /tests/**/*/results.json
+
+# TODO: temporary solution to allow testing the test runner locally
+# but without commiting the Jai compiler to the repository
+/jai
