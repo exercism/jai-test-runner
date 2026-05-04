@@ -16,13 +16,14 @@
 set -e
 
 # Build the Docker image
-docker build --rm -t exercism/jai-test-runner .
+docker build --rm --platform linux/amd64 -t exercism/jai-test-runner .
 
 # Run the Docker image using the settings mimicking the production environment
 docker run \
     --rm \
     --network none \
     --read-only \
+    --platform linux/amd64 \
     --mount type=bind,src="${PWD}/tests",dst=/opt/test-runner/tests \
     --mount type=tmpfs,dst=/tmp \
     --volume "${PWD}/bin/run-tests.sh:/opt/test-runner/bin/run-tests.sh" \

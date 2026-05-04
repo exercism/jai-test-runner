@@ -33,13 +33,14 @@ output_dir=$(realpath "${3%/}")
 mkdir -p "${output_dir}"
 
 # Build the Docker image
-docker build --rm -t exercism/jai-test-runner .
+docker build --rm --platform linux/amd64 -t exercism/jai-test-runner .
 
 # Run the Docker image using the settings mimicking the production environment
 docker run \
     --rm \
     --network none \
     --read-only \
+    --platform linux/amd64 \
     --mount type=bind,src="${solution_dir}",dst=/solution \
     --mount type=bind,src="${output_dir}",dst=/output \
     --mount type=tmpfs,dst=/tmp \
