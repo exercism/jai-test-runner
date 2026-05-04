@@ -1,4 +1,21 @@
 {
-  "version": 1,
-  "status": "pass"
+  "version": 2,
+  "status": "pass",
+  "tests": [
+    {
+      "name": "year_not_divisible_by_4_in_common_year",
+      "status": "pass",
+      "test_code": "assert_equal(false, is_leap_year(2015))"
+    },
+    {
+      "name": "year_divisible_by_2_not_divisible_by_4_in_common_year",
+      "status": "pass",
+      "test_code": "assert_equal(false, is_leap_year(1970))"
+    },
+    {
+      "name": "year_divisible_by_4_not_divisible_by_100_in_leap_year",
+      "status": "pass",
+      "test_code": "assert_equal(true, is_leap_year(1996))"
+    }
+  ]
 }
